@@ -3,10 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/styles.css">
   <title>My Vue app</title>
 </head>
 <body>
+  <div id = "app" class ='container'>
+    <h1>My Todos</h1>
+    <ul>
+      <li v-for = '(todo,index) in todos'>
+        {{ todo }}
+        <span @click ='deleteItem(index)' class='command'>[X]</span>
+      </li>
+    </ul>
+    <form @submit.prevent ='addItem'>
+      <input type="text" v-model ='newItem'>
+      <input type="submit" value="add">
+    </form>
+  </div>
+
+
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/main.js"></script>
 </body>
